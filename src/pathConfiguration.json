@@ -1,0 +1,7 @@
+{
+	"DBInfoLocation":"/home/lihongb/DATABASE/DBInfo/",
+	"inputFileLocation":"/home/cf797/test/casp11Alignment/",
+	"outputFileLocation":"/home/cf797/test/casp11OutputResultFolder/",
+	"proteinLocation": "/home/cf797/test/casp11Seq/"
+  
+}
