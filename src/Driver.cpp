@@ -24,24 +24,23 @@ int main(int argc, char* argv[]) {
 
 	if (strcmp(argv[1], "-blaPDB") == 0) {
 
-		HitProtein protein("2JRB_A");
+		HitProtein protein("2YIN_B");
 		protein.loadProteinInfo("/home/lihongb/DATABASE/DBInfo/");
 		protein.dispProteinInfo();
-		int queryStart=38;
-		int queryEnd=46;
-		string queryPart="E-------EISVKGPN";
-
-		int subjectStart=42;
-		int subjectEnd=54;
-		string subjectPart="RLLYPAKLSITI---D";
+		int queryStart=79;
+		int queryEnd=234;
+		string queryPart="NRASLYTELGETEKALNDYNTLLIEN---PEHQEALYCRGLLYIQLQNYMWAEQDFDKILEVNEKSVRARLGHAILEKMR--------GNYDESERIFNYLISEMPRDWILYEGRADLYFMMGKNARAMADIEKVFTESEPT-ANLYVLRG-------KIKLAQYEKERAALDFK";
+		int subjectStart=20;
+		int subjectEnd=189;
+		string subjectPart="NLLNFYKDNNREEMYIRYLYKLRDLHLDCDNYTEAAYTL-LLHTWLLKWSD-EQCASQVMQTGQQHPQTHRQLKETLYETIIGYFDKGKMWEEAISLCKELAEQYEMEIFDYELLSQNLIQQAKFYESI---MKILRPKPDYFAVGYYGQGFPSFLRNKVFIYRGKEYERREDFQ";
 		Point* fetchPart=protein.fetchSubjectAlignedPart3DPointsForQuery( queryStart,  queryEnd,  queryPart,
 				 subjectStart,  subjectEnd,  subjectPart);
 		//protein.freeProtein();
 
 
 
-		GroundTruthRoot groundTruthRoot("T0759");
-		groundTruthRoot.setRealSequenceLength(96);
+		GroundTruthRoot groundTruthRoot("T0821");
+		groundTruthRoot.setRealSequenceLength(255);
 		groundTruthRoot.loadProteinInfo("/home/cf797/test/DATABASE/PDB/");
 
 		cout<<"RMSD is:"<<Protein::calculateRMSD(fetchPart,groundTruthRoot.getCAlpha_XYZ(),queryStart,queryEnd);

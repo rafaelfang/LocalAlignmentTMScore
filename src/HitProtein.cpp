@@ -41,7 +41,7 @@ Point* HitProtein::fetchSubjectAlignedPart3DPointsForQuery(int queryStart,
 		}
 
 	}
-	/*
+
 	cout << "subjectPoints:" << endl;
 	for (int i = 0; i < sizeOfAlignment; i++) {
 		if (i % 10 == 0) {
@@ -64,7 +64,7 @@ Point* HitProtein::fetchSubjectAlignedPart3DPointsForQuery(int queryStart,
 		cout << subjectPoints[i].getZ() << " ";
 	}
 
-	cout << endl;*/
+	cout << endl;
 	int numOfGapsInQueryPart = 0;
 	for (int i = 0; i < queryPart.size(); i++) {
 		if (queryPart[i] == '-') {
@@ -85,7 +85,7 @@ Point* HitProtein::fetchSubjectAlignedPart3DPointsForQuery(int queryStart,
 		}
 
 	}
-	/*cout<<"query Part All Xs:"<<endl;
+	cout<<"query Part All Xs:"<<endl;
 	for (int i = 0; i < sizeOfAlignment - numOfGapsInQueryPart; i++) {
 		if (i % 10 == 0) {
 			cout << endl;
@@ -110,7 +110,7 @@ Point* HitProtein::fetchSubjectAlignedPart3DPointsForQuery(int queryStart,
 		cout << candidateQueryAlignedPart3DCoords[i].getZ() << " ";
 
 	}
-	*/
+
 	cout << endl;
 	return candidateQueryAlignedPart3DCoords;
 
@@ -141,9 +141,9 @@ void HitProtein::loadProteinInfo(string proteinLocation) {
 				string _realSequenceInfo(line);
 
 				setRealSequenceInfo(_realSequenceInfo);
-				//cout << realSequenceInfo << endl;
+				cout << realSequenceInfo << endl;
 				setRealSequenceLength(numberOfChars);
-				//cout << realSequenceLength << endl;
+				cout << realSequenceLength << endl;
 			}
 			if ((strstr(line, ">Ca XYZ:") != NULL)) {
 
@@ -155,31 +155,31 @@ void HitProtein::loadProteinInfo(string proteinLocation) {
 				for (int i = 0; i < realSequenceLength; i++) {
 					fscanf(fptr, "%lf", &temp);
 					Xs[i] = temp;
-					/*if (i % 10 == 0) {
+					if (i % 10 == 0) {
 					 cout << endl;
 					 }
-					 cout << Xs[i] << " ";*/
+					 cout << Xs[i] << " ";
 				}
-				//cout << endl;
+				cout << endl;
 
 				for (int i = 0; i < realSequenceLength; i++) {
 					fscanf(fptr, "%lf", &temp);
 					Ys[i] = temp;
-					/*if (i % 10 == 0) {
+					if (i % 10 == 0) {
 					 cout << endl;
 					 }
-					 cout << Ys[i] << " ";*/
+					 cout << Ys[i] << " ";
 				}
-				//cout << endl;
+				cout << endl;
 				for (int i = 0; i < realSequenceLength; i++) {
 					fscanf(fptr, "%lf", &temp);
 					Zs[i] = temp;
-					/*if (i % 10 == 0) {
+					if (i % 10 == 0) {
 					 cout << endl;
 					 }
-					 cout << Zs[i] << " ";*/
+					 cout << Zs[i] << " ";
 				}
-				//cout << endl;
+				cout << endl;
 				CAlpha_XYZ = (Point*) malloc(
 						sizeof(Point) * realSequenceLength);
 
